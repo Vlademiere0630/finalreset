@@ -96,7 +96,7 @@
     formData.append("confirmPassword", confirmPassword);
     formData.append("action", "resetPassword");
 
-    fetch("YOUR_GOOGLE_APPS_SCRIPT_URL", {
+    fetch("https://script.google.com/macros/s/AKfycbyqdkFazccTuNZYEQqTU-83exCIQzB2BdJPaoawYWSVGltKIIzwufflUQaIombVOTm6/exec", {
       method: "POST",
       body: formData
     })
@@ -104,7 +104,7 @@
     .then(data => {
       if (data === "PasswordResetSuccess") {
         alert("Password reset successfully!");
-        window.location.href = "YOUR_LOGIN_PAGE.html"; // Optional redirect
+        window.location.href = "#loginPopup"; // Optional redirect
       } else {
         alert("Reset failed: " + data);
       }
