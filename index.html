@@ -197,6 +197,16 @@
     </footer>
 
     <script>
+// Check for ?showLogin=1 in URL and open the login popup
+window.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('showLogin') === '1') {
+        window.location.hash = '#loginPopup';
+    }
+});
+</script>
+
+    <script>
     // Auto-show login popup if redirected from password reset
     window.addEventListener("DOMContentLoaded", () => {
         const params = new URLSearchParams(window.location.search);
