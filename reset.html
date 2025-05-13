@@ -69,6 +69,10 @@
     <h2>Reset Password</h2>
     <form id="resetPasswordForm">
 
+      <!-- Added Email Input -->
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required>
+
       <label for="newPassword">New Password</label>
       <input type="password" id="newPassword" name="newPassword" required>
 
@@ -83,6 +87,7 @@
   document.getElementById("resetPasswordForm").addEventListener("submit", function (e) {
     e.preventDefault();
 
+    const email = document.getElementById("email").value;  // Get the email value
     const newPassword = document.getElementById("newPassword").value;
     const confirmPassword = document.getElementById("confirmPassword").value;
 
@@ -92,6 +97,7 @@
     }
 
     const formData = new FormData();
+    formData.append("email", email);  // Append the email to the form data
     formData.append("newPassword", newPassword);
     formData.append("confirmPassword", confirmPassword);
     formData.append("action", "resetPassword");
@@ -113,6 +119,6 @@
       alert("Error: " + error.message);
     });
   });
-</script>
+  </script>
 </body>
 </html>
